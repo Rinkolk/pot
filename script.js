@@ -65,3 +65,22 @@ function submitOrder(event) {
         console.error('Ошибка:', error);
     });
 }
+function submitOrder(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+    const formData = new FormData(document.getElementById('form'));
+
+    fetch('order.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Успех:', data);
+        // Можно добавить обработку успешной отправки (например, показать сообщение)
+    })
+    .catch((error) => {
+        console.error('Ошибка:', error);
+        // Можно добавить обработку ошибки (например, показать сообщение об ошибке)
+    });
+}
