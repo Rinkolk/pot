@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Оформление заказа</title>
+</head>
+<body>
+    <header>
+        <h1>Оформление заказа</h1>
+    </header>
+
+    <div class="order-form">
+        <form id="form" onsubmit="submitOrder(event)">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="email" name="email" placeholder="Ваш email" required>
+            <input type="text" name="address" placeholder="Адрес(если самовывоз то напишете 'нет')" required>
+            <input type="tel" name="phone" placeholder="Телефон" required>
+            <button type="submit">Отправить заказ</button>
+        </form>
+    </div>
+    
+    <div id="cart" class="cart">
+        <h2>Ваш Заказ</h2>
+        <div id="cartContents"></div>
+        <div id="totalPrice" style="font-weight: bold;"></div>
+    </div>
+
+    <script>
+    
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContents = document.getElementById('cartContents');
+            const totalPrice = document.getElementById('totalPrice');
+
+            if (cart.length === 0) {
+                cartContents.innerHTML = 'Корзина пуста.';
+                totalPrice.innerHTML = ''; 
+            } else {
+                cartContents.innerHTML = cart.map(item => `
+                    ${item.item} - ${item.price}₽
+                `).join('<br>');
+
+        
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                totalPrice.innerHTML = `Общая стоимость: ${total}₽`; // Отображаем общую стоимость
+            }
+        }
+
+
+        loadCart();
+    </script>
+</body>
+</html>

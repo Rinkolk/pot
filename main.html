@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Декоративные горшки и фигурки</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <body class="main-background">
+        <div class="header-container">
+            <h1 class="title">Decorate Pots</h1>
+            <p class="subtitle">Магазин Горшков и Фигурок Уфы</p>
+            <div id="cart" class="cart">
+                <h2>Корзина</h2>
+                <div id="cartContents"></div>
+                <button onclick="clearCart()">Очистить корзину</button>
+                <button onclick="checkout()">Оформить заказ</button>
+            </div>
+        
+    <div class="container">
+        <div class="product">
+            <img src="Grut.jpg" alt="Горшок грут">
+            <p class="Grutt">Горшок грут</p>
+            <p class="price">2500 р</p>
+            <button onclick="addToCart('Горшок грут', 2500)" class="red" data-id="Grut">Добавить в корзину</button>
+        </div>
+
+        <div class="product">
+            <img src="Skelet.jpg" alt="Скелет">
+            <p class="Skelett">Скелет</p>
+            <p class="price">1900 р</p>
+            <button onclick="addToCart('Скелет', 1900)" class="red" data-id="Grut">Добавить в корзину</button>
+        </div>
+
+        <div class="product">
+          
+            <img src="Telepyzik.jpg" alt="Телепузик">
+            <p class="telepyzikk">Телепузик</p>
+            <p class="price">700 р</p>
+            <button onclick="addToCart('Телпузик', 700)" class="red" data-id="Grut">Добавить в корзину</button>
+        </div>
+
+        <div class="product">
+            <img src="Pots1.jpg" alt="Горшки в виде человечков">
+            <p class="Potss">Горшки в виде человечков</p>
+            <p class="price">900 р</p>
+            <button onclick="addToCart('Горшки в виде человечков', 900)" class="red" data-id="Grut">Добавить в корзину</button>
+        </div>
+    </div> 
+    
+    <footer>
+        <p>© 2024 Декоративные горшки и фигурки. Все права защищены.</p>
+    </footer>
+</body>
+</html>

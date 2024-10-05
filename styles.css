@@ -1,0 +1,100 @@
+/* Общие стили для body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Стили для заголовка */
+header {
+    background-color: #4CAF50; /* Зеленый заголовок */
+    color: white; /* Белый текст */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Стили для продуктов */
+.product {
+    text-align: center;
+    margin: 20px;
+}
+
+.product img {
+    width: 300px; /* Фиксированная ширина для изображений продуктов */
+    height: auto; /* Поддерживать соотношение сторон */
+    border-radius: 10px; /* Скругленные углы */
+}
+
+/* Стили для корзины */
+.cart {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white; /* Белый фон для корзины */
+}
+
+/* Стили для формы заказа */
+.order-form {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white; /* Белый фон для формы */
+}
+
+/* Стили для полей ввода */
+input {
+    display: block;
+    margin: 10px auto; /* Центрирование полей ввода */
+    padding: 10px; /* Отступы внутри полей */
+    width: 80%; /* Ширина 80% */
+    border: 1px solid #ccc; /* Светло-серая рамка */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+/* Стили для кнопок */
+button {
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    color: white; /* Белый текст */
+    background-color: #4CAF50; /* Зеленый фон */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Скругленные углы */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #45a049; /* Темный зеленый при наведении */
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .product img {
+        width: 100%; /* Изображения продуктов занимают 100% ширины на мобильных устройствах */
+    }
+
+    .order-form,
+    .cart {
+        width: 90%; /* Ширина формы и корзины на мобильных устройствах */
+        margin: 10px auto; /* Центрирование */
+    }
+
+    input {
+        width: 100%; /* Поля ввода занимают 100% ширины на мобильных устройствах */
+    }
+
+    button {
+        width: 100%; /* Кнопки занимают 100% ширины на мобильных устройствах */
+    }
+}
+
+@media (min-width: 769px) {
+    /* Стили для настольных устройств */
+    .product {
+        display: inline-block; /* Размещаем карточки продуктов в строку */
+        width: calc(33.33% - 40px); /* Три карточки в ряд с отступами */
+        vertical-align: top; /* Выравнивание по верхнему краю */
+    }
+}

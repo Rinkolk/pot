@@ -1,0 +1,225 @@
+/* Общие стили для body */
+body {
+    background-color: #f9f9f9; /* Светлый фон для чистого вида */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Позволяет заголовку, основному контенту и подвалу располагаться вертикально */
+    min-height: 100vh; /* Обеспечивает, чтобы body занимал хотя бы полную высоту окна */
+}
+
+/* Основной фон с градиентом */
+.main-background {
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Мягкий градиент */
+    flex: 1; /* Позволяет этому блоку занимать оставшееся пространство */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Стили для контейнера заголовка */
+.header-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px; /* Скругленные углы */
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    max-width: 90%; /* Максимальная ширина */
+}
+
+/* Стили для заголовка */
+.title {
+    font-size: 48px; /* Размер шрифта */
+    color: #00796b; /* Цвет заголовка */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Тень для заголовка */
+    letter-spacing: 2px; /* Пробелы между буквами */
+    margin: 0;
+    transition: transform 0.3s ease, color 0.3s ease; /* Плавный переход */
+}
+
+.title:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+    color: #004d40; /* Темный цвет при наведении */
+}
+
+/* Стили для подзаголовка */
+.subtitle {
+    font-size: 20px; /* Размер шрифта подзаголовка */
+    color: #555; /* Цвет подзаголовка */
+    margin-top: 10px; /* Отступ сверху */
+    opacity: 0.8; /* Прозрачность */
+    transition: opacity 0.3s ease; /* Плавный переход */
+}
+
+.subtitle:hover {
+    opacity: 1; /* Полная непрозрачность при наведении */
+}
+
+/* Стили для заголовка */
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #4CAF50; /* Зеленый заголовок */
+    color: white; /* Белый текст */
+}
+
+header img {
+    width: 100%; /* Адаптивное изображение заголовка */
+    max-width: 2000px; /* Поддерживать максимальную ширину */
+    height: auto; /* Поддерживать соотношение сторон */
+}
+
+/* Контейнер для продуктов */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    gap: 20px; /* Пробел между карточками продуктов */
+}
+
+/* Стили для карточек продуктов */
+.product {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px; /* Фиксированная ширина для карточек продуктов */
+    transition: transform 0.3s; /* Анимация при наведении */
+}
+
+.product:hover {
+    transform: scale(1.05); /* Легкий эффект увеличения при наведении */
+}
+
+/* Стили для изображений продуктов */
+.product img {
+    width: 100%;
+    height: auto; /* Поддерживать соотношение сторон */
+    border-radius: 8px; /* Скругленные углы для изображений */
+}
+
+/* Стили для описания продуктов */
+.product p {
+    margin: 10px 0;
+    font-size: 18px; /* Увеличенный размер шрифта для лучшей читаемости */
+}
+
+/* Стили для цен */
+.price {
+    font-weight: bold;
+    color: #C1172C; /* Цвет цены */
+    font-size: 20px; /* Увеличенный шрифт для цены */
+}
+
+/* Стили для кнопок */
+button {
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s; /* Анимация при наведении */
+    margin-top: 10px; /* Пробел над кнопкой */
+}
+
+/* Стили для красной кнопки */
+.red {
+    background: #C1172C;
+}
+
+.red:hover {
+    background: #A10F2B; /* Темный красный при наведении */
+    transform: translateY(-2px); /* Легкое движение вверх при наведении */
+}
+
+/* Дополнительные стили для кнопок */
+.green {
+    background: #73A353;
+}
+
+.green:hover {
+    background: #5C8B3A; /* Темный зеленый при наведении */
+}
+
+.orange {
+    background: #F7941E;
+}
+
+.orange:hover {
+    background: #D77D1B; /* Темный оранжевый при наведении */
+}
+
+/* Стили для подвала */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50; /* Подвал такой же, как заголовок */
+    color: white; /* Белый текст */
+    position: relative;
+    bottom: 0;
+    width: 100%; /* Полная ширина */
+}
+
+/* Стили для корзины */
+.cart {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Стили для формы заказа */
+.order-form {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Стили для полей ввода */
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Стили для кнопки отправки */
+button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Вертикальное расположение карточек на мобильных устройствах */
+        align-items: center; /* Центрирование карточек */
+    }
+
+    .product {
+        width: 90%; /* Ширина карточек на мобильных устройствах */
+    }
+
+    .order-form {
+        width: 90%; /* Ширина формы на мобильных устройствах */
+    }
+}
