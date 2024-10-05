@@ -68,19 +68,25 @@ function submitOrder(event) {
 function submitOrder(event) {
     event.preventDefault(); // Предотвращаем стандартное поведение формы
 
-    const formData = new FormData(document.getElementById('form'));
+    const form = document.getElementById('form');
+    const formData = new FormData(form);
 
     fetch('order.php', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        console.log('Успех:', data);
-        // Можно добавить обработку успешной отправки (например, показать сообщение)
+    .then(response => {
+        if (response.ok) {
+            return response.text(); // Или response.json(), если ожидается JSON
+        }
+        throw new Error('Сетевая ошибка.');
     })
-    .catch((error) => {
-        console.error('Ошибка:', error);
-        // Можно добавить обработку ошибки (например, показать сообщение об ошибке)
+    .then(data => {
+        console.log(data); // Обработка успешного ответа
+        alert('Заказ успешно отправлен!');
+    })
+    .catch(error => {
+        console.error('Произошла ошибка при отправке:', error);
+        alert('Ошибка при отправке заказа. Пожалуйста, попробуйте снова.');
     });
 }
