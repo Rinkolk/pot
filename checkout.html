@@ -11,17 +11,15 @@
     <header>
         <h1>Оформление заказа</h1>
     </header>
-
-    <div class="order-form">
-        <form id="form" aсtion="order.php" onsubmit="submitOrder(event)">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="email" name="email" placeholder="Ваш email" required>
-            <input type="text" name="address" placeholder="Адрес(если самовывоз то напишете 'нет')" required>
-            <input type="tel" name="phone" placeholder="Телефон" required>
-            <button type="submit">Отправить заказ</button>
-        </form>
-    </div>
-    
+<div class="order-form">
+    <form id="form" action="order.php" method="POST" onsubmit="submitOrder(event)">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="email" name="email" placeholder="Ваш email" required>
+        <input type="text" name="address" placeholder="Адрес (если самовывоз, то напишите 'нет')" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <button type="submit">Отправить заказ</button>
+    </form>
+</div>
     <div id="cart" class="cart">
         <h2>Ваш Заказ</h2>
         <div id="cartContents"></div>
