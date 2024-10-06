@@ -79,7 +79,7 @@ function submitOrder(event) {
     .then(data => {
         alert(data);
         clearCart();
-        window.location.href = 'main.html';
+        window.location.href = 'index.html';
     })
     .catch(error => {
         console.error('Ошибка:', error);
