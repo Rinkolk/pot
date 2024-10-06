@@ -66,13 +66,15 @@ function submitOrder(event) {
     });
 }
 
-function sendMail(){
-     let parms = {
-        name : document.getElementById("name").value,
-        email : document.getElementById("email").value,
-        adress : document.getElementById("adress").value,
-        phone : document.getElementById("phone").value,
-     }
+emailjs.init("yNhmfV4hoZvtDhRmfb");
 
-     emailjs.send("service_hep84r6","template_sh6vwus",parms).then(alert("Email Sent"))
-}
+document.getElementById('order-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Предотвращает обновление страницы
+
+    emailjs.sendForm('service_q170446', 'template_gyj77m8', this)
+    .then(function() {
+        alert('Сообщение успешно отправлено!');
+    }, function(error) {
+        alert('Ошибка отправки: ' + error);
+    });
+});
