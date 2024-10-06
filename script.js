@@ -65,28 +65,14 @@ function submitOrder(event) {
         console.error('Ошибка:', error);
     });
 }
-function submitOrder(event) {
-    event.preventDefault(); // Предотвращаем стандартное поведение формы
 
-    const form = document.getElementById('form');
-    const formData = new FormData(form);
+function sendMail(){
+     let parms = {
+        name : document.getElementById("name").value,
+        email : document.getElementById("email").value,
+        adress : document.getElementById("adress").value,
+        phone : document.getElementById("phone").value,
+     }
 
-    fetch('order.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.text(); // Или response.json(), если ожидается JSON
-        }
-        throw new Error('Сетевая ошибка.');
-    })
-    .then(data => {
-        console.log(data); // Обработка успешного ответа
-        alert('Заказ успешно отправлен!');
-    })
-    .catch(error => {
-        console.error('Произошла ошибка при отправке:', error);
-        alert('Ошибка при отправке заказа. Пожалуйста, попробуйте снова.');
-    });
+     emailjs.send("service_hep84r6","template_sh6vwus",parms).then(alert("Email Sent"))
 }
