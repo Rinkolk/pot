@@ -4,28 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
     <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-</script>
+    <script src="script.js" defer></script>
     <title>Оформление заказа</title>
 </head>
 <body>
     <header>
         <h1>Оформление заказа</h1>
     </header>
-<div class="order-form">
-    <form id="form" action="order.php" method="POST" onsubmit="submitOrder(event)">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <input type="email" name="email" placeholder="Ваш email" required>
-        <input type="text" name="address" placeholder="Адрес (если самовывоз, то напишите 'нет')" required>
-        <input type="tel" name="phone" placeholder="Телефон" required>
-        <button type="submit" onclick="sendMail()">Отправить заказ</button>
-    </form>
-</div>
+    <div class="order-form">
+        <form id="form" onsubmit="submitOrder(event)">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="email" name="email" placeholder="Ваш email" required>
+            <input type="text" name="address" placeholder="Адрес (если самовывоз, то напишите 'нет')" required>
+            <input type="tel" name="phone" placeholder="Телефон" required>
+            <button type="submit">Отправить заказ</button>
+        </form>
+    </div>
     <div id="cart" class="cart">
         <h2>Ваш Заказ</h2>
-        <div id="cartContents"></div>
-        <div id="totalPrice" style="font-weight: bold;"></div>
+        <div id="cartContents"></div> <!-- Здесь будет отображаться содержимое корзины -->
+        <div id="totalPrice" style="font-weight: bold;"></div> <!-- Общая стоимость -->
     </div>
+
+    <script>
+        // Функция для отображения содержимого корзины
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContents = document.getElementById('cartContents');
+            const totalPrice = document.getElementById('totalPrice');
+
+            if (cart.length === 0) {
+                cartContents.innerHTML = 'Нет товаров в корзине.';
+                totalPrice.innerHTML = '';
+            } else {
+                const itemsHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        ${item.item} - ${item.price}₽
+                    </div>
+                `).join('');
+
+                const total = calculateTotal(cart);
+                cartContents.innerHTML = itemsHTML;
+                totalPrice.innerHTML = `<strong>Общая стоимость: ${total}₽</strong>`;
+            }
+        }
+
+        // Функция для вычисления общей стоимости
+        function calculateTotal(cart) {
+            return cart.reduce((sum, item) => sum + item.price, 0);
+        }
+
+        // Вызываем функцию для отображения корзины при загрузке страницы
+        window.onload = displayCart;
+    </script>
+
 </body>
 </html>
